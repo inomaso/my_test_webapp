@@ -1,6 +1,6 @@
 require 'sinatra'
     get '/' do
-      'Hello world!'
+      'Hello world! Update!!'
 end
 
 # ヘルスチェック用の URL を追記 
