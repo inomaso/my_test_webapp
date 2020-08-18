@@ -61,10 +61,10 @@ jobs:
             $(aws ecr get-login --no-include-email --region ap-northeast-1)
         - run:
           name: deploy
-            command: |
-              aws ecs describe-task-definition --task-definition webapp-service | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }'> definition.json
-              aws ecs register-task-definition --family webapp-service --cli-input-json file://definition.json
-              aws ecs update-service --cluster sample-ecs-cluster --service webapp-service --task-definition webapp-service
+          command: |
+            aws ecs describe-task-definition --task-definition webapp-service | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }'> definition.json
+            aws ecs register-task-definition --family webapp-service --cli-input-json file://definition.json
+            aws ecs update-service --cluster sample-ecs-cluster --service webapp-service --task-definition webapp-service
 workflows:
   version: 2
   test:
